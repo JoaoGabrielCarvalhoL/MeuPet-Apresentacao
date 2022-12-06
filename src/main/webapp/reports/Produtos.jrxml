@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.15.0.final using JasperReports Library version 6.15.0-dd49bfb94918336b8321d5507193f0169ead4e95  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Produtos" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b53de69d-e383-45e1-925a-fdbbe430bf6b">
+	<property name="com.jaspersoft.studio.data.sql.tables">
+		<![CDATA[amF2YXBldC5wcm9kdXRvIEFTICw1OSwyNyxmNTIzODAyYi1lYTJmLTQ5ZTAtYTQxYS1kMmU0OWFj
+ZGIyNDE7]]>
+	</property>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Petshop Data Adapter "/>
+	<queryString language="SQL">
+		<![CDATA[SELECT javapet.produto.descricao,
+	javapet.produto.preco
+FROM javapet.produto
+ORDER BY javapet.produto.descricao ASC]]>
+	</queryString>
+	<field name="descricao" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="descricao"/>
+		<property name="com.jaspersoft.studio.field.label" value="descricao"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="produto"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="preco" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="preco"/>
+		<property name="com.jaspersoft.studio.field.label" value="preco"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="produto"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="89" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="560" height="89" uuid="20704270-311f-4fb6-b84a-a69cb96e5ca9"/>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[MeuPet 
+Sistema de Gerenciamento para Petshops
+
+]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="47" splitType="Stretch">
+			<staticText>
+				<reportElement x="-20" y="0" width="595" height="47" uuid="d7fdb7f7-e1bb-407f-81c9-735d65be2aa4"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Relatorio de Produtos]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="30" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="180" height="30" uuid="ba03231f-c57d-4c83-b71c-214ea2f5430c">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f12f7863-42bb-4db7-88dd-3efb8f90a1e1"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Produtos e Servi�os
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="280" y="0" width="110" height="30" uuid="cb1bbfd6-5054-4944-8bbe-1bd91572019e">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="ccec0597-6cee-43c9-a099-370aa687c68b"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Pre�o
+]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="30" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="280" height="30" uuid="70dfd4ca-01dd-4031-9193-120bf01e3b58">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f12f7863-42bb-4db7-88dd-3efb8f90a1e1"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{descricao}]]></textFieldExpression>
+			</textField>
+			<textField pattern="0.00">
+				<reportElement x="280" y="0" width="280" height="30" uuid="f46a9feb-9e3e-4f2e-a75e-f6f9aacda25c">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="ccec0597-6cee-43c9-a099-370aa687c68b"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{preco}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="56" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="26" width="560" height="30" uuid="fa560ded-f687-4c75-a63a-60098021d264"/>
+				<box>
+					<topPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[MeuPet - Sistema de Gerenciamento para Petshops
+
+]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+</jasperReport>

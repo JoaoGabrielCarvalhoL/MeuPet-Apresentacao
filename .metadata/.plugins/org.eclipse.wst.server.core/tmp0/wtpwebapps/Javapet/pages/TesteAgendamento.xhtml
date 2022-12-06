@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+	
+<h:head>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Teste PrimeFaces</title>
+	
+</h:head>
+
+<h:body > 
+<p:growl id="mensagem"></p:growl>
+	<h:form>
+			<h:outputScript library="js" name="scripts.js"></h:outputScript>
+			
+			<p:schedule value="#{agendamentoBean.agendamentos}">
+				<p:ajax event="dateSelect" listener="#{agendamentoBean.novo}" oncomplete="PF('dialogo').show();" update=":formularioCadastro:painel"></p:ajax>
+			</p:schedule>
+		</h:form>
+		
+		<p:dialog header="Agenda" draggable="false" resizable="false" modal="true" closable="true" widgetVar="dialogo">
+		
+			<h:form id="formularioCadastro">
+			
+				<h:panelGrid id="painel" columns="2">
+					<p:outputLabel value="Agendamento: "></p:outputLabel>
+					<p:inputText value="#{agendamentoBean.agendamento.dataAgendamento}">
+						<f:convertDateTime locale="pt_BR"></f:convertDateTime>
+					</p:inputText>
+					
+					
+					<p:outputLabel for="cliente" value="Cliente: "></p:outputLabel>
+					<p:selectOneMenu id="cliente" filter="true" value="#{agendamentoBean.agendamento.cliente}" required="true" requiredMessage="O campo Cliente é obrigatório!" converter="omnifaces.SelectItemsConverter">
+						<f:selectItem noSelectionOption="true" itemLabel="Selecione um Cliente"></f:selectItem>
+						<f:selectItems value="#{agendamentoBean.clientes}" var="cliente" itemValue="#{cliente}" itemLabel="#{cliente.pessoa.nome} - #{cliente.pessoa.cpf}"></f:selectItems>
+					</p:selectOneMenu>
+					
+					<p:outputLabel for="produtos" value="Produtos: "></p:outputLabel>
+					<p:selectOneMenu id="produtos" filter="true" value="#{agendamentoBean.agendamento.produto}" required="true" requiredMessage="O campo Produtos é obrigatório!" converter="omnifaces.SelectItemsConverter">
+						<f:selectItem noSelectionOption="true" itemLabel="Selecione um Produto"></f:selectItem>
+						<f:selectItems value="#{agendamentoBean.produtos}" var="produto" itemValue="#{produto}" itemLabel="#{produto.descricao} - #{produto.preco}"></f:selectItems>
+					</p:selectOneMenu>
+				</h:panelGrid>
+				
+				<h:panelGrid columns="1">
+					<p:commandButton value="Salvar" actionListener="#{agendamentoBean.salvar}" update=":mensagem" oncomplete="PF('dialogo').hide();"></p:commandButton>
+				
+				</h:panelGrid>
+				
+			
+			
+			</h:form>
+			
+		</p:dialog>
+	
+</h:body>
+
+</html>

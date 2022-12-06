@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.15.0.final using JasperReports Library version 6.15.0-dd49bfb94918336b8321d5507193f0169ead4e95  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Blank_A4" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="2045c548-3408-4e96-a109-05bf1029b576">
+	<property name="com.jaspersoft.studio.data.sql.tables">
+		<![CDATA[amF2YXBldC5wZXNzb2EgLDIwLDIwLDk0OWVhMjMyLTU0MjEtNGNlOS05YjQwLTUzYmYyYjU3YzI1
+ODtqYXZhcGV0LmNpZGFkZSAsMTYxLDE1MCw1NjBiYWYyMi00MDEzLTQ1MTEtYmY4Zi00OTRhODY3
+YzU2OTE7amF2YXBldC5lc3RhZG8gLDI5NiwxNTAsNDVkNzg2M2QtMzBlZC00ODRmLWJhZjEtMGYz
+NTBjYzZmMWZjOw==]]>
+	</property>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Petshop Data Adapter "/>
+	<queryString language="SQL">
+		<![CDATA[SELECT javapet.pessoa.celular,
+	javapet.pessoa.cpf,
+	javapet.pessoa.email,
+	javapet.pessoa.nome AS pnome,
+	javapet.cidade.nome AS cnome,
+	javapet.estado.nome AS enome,
+	javapet.estado.sigla
+FROM javapet.pessoa
+	INNER JOIN javapet.cidade ON 
+	 javapet.pessoa.cidade_id = javapet.cidade.id 
+	INNER JOIN javapet.estado ON 
+	 javapet.cidade.estado_id = javapet.estado.id]]>
+	</queryString>
+	<field name="celular" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="celular"/>
+		<property name="com.jaspersoft.studio.field.label" value="celular"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pessoa"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cpf" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="cpf"/>
+		<property name="com.jaspersoft.studio.field.label" value="cpf"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pessoa"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="email" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="email"/>
+		<property name="com.jaspersoft.studio.field.label" value="email"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pessoa"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="pnome" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nome"/>
+		<property name="com.jaspersoft.studio.field.label" value="pnome"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pessoa"/>
+	</field>
+	<field name="cnome" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nome"/>
+		<property name="com.jaspersoft.studio.field.label" value="cnome"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="cidade"/>
+	</field>
+	<field name="enome" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nome"/>
+		<property name="com.jaspersoft.studio.field.label" value="enome"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="estado"/>
+	</field>
+	<field name="sigla" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="sigla"/>
+		<property name="com.jaspersoft.studio.field.label" value="sigla"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="estado"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="550" height="70" uuid="1ff26cf8-7359-459f-b41c-12178fe8f171"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[MeuPet
+Sistema de Gerenciamento para Petshops]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="54" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="550" height="54" uuid="4378eb5f-2f69-4e51-99ce-b88583c77922"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Relatorio de Pessoas]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="30" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="80" height="30" uuid="5ce98397-a090-4e63-b332-b29bda544173">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="bd2b352c-499c-4b1b-b5b4-e852a54925aa"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nome]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="90" y="0" width="90" height="30" uuid="0cf68a99-0e50-4836-b263-d93094d7a37d">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="eb2d6e04-39e1-4082-a48f-aee00559dc94"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CPF]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="200" y="0" width="90" height="30" uuid="d362bffa-b705-4b9f-8a42-b060f2907318">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="788972c0-3164-42ee-8188-ccedd4af1f31"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[E-mail]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="300" y="0" width="90" height="30" uuid="c4ea8de4-4991-4cca-a98c-2160b8dfa916">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="51cacce5-ee7a-46be-8862-53052332ff7c"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Celular]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="410" y="0" width="80" height="30" uuid="5c3fa872-05fa-4554-a6e8-ef2af62804d3">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="be0d6def-4d6c-4700-aada-cfc45a2e53cf"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Estado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="490" y="0" width="60" height="30" uuid="7b1352c7-0c0f-4d62-a6be-6158c0346ec5">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c5c9607d-757f-4d94-9fc0-6343c32dad32"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cidade]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="30" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="80" height="30" uuid="dfc8c90a-fe44-41c4-be87-f50fdf7fb92c">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="bd2b352c-499c-4b1b-b5b4-e852a54925aa"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{pnome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="90" y="0" width="90" height="30" uuid="c790f5ad-fe17-4ddb-ac82-1f439d9ed18d">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="eb2d6e04-39e1-4082-a48f-aee00559dc94"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{cpf}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="200" y="0" width="90" height="30" uuid="795690c3-9606-4059-b044-0c99b7c7eaae">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="788972c0-3164-42ee-8188-ccedd4af1f31"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{email}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="300" y="0" width="90" height="30" uuid="603221e5-6188-4dc0-8f24-fffe73605708">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="51cacce5-ee7a-46be-8862-53052332ff7c"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{celular}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="400" y="0" width="90" height="30" uuid="932783af-22d2-48d8-bda7-077a1c455008">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="be0d6def-4d6c-4700-aada-cfc45a2e53cf"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{enome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="500" y="0" width="50" height="30" uuid="436e5a1f-8e5b-4372-ba30-0430dce2fb2f">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c5c9607d-757f-4d94-9fc0-6343c32dad32"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{cnome}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="56" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="560" height="56" uuid="1ead069c-b3a0-4719-af23-59db12a9a258"/>
+				<box>
+					<topPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[MeuPet 
+Sistema de Gerenciamento para Petshops]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+</jasperReport>

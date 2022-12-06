@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Meupet</title>
+	<h:outputStylesheet library="css" name="Estilos.css"></h:outputStylesheet>
+	
+	
+
+</h:head>
+
+<h:body style="background-color:#2c2c2c;">
+	<p:growl id="mensagem" ></p:growl>
+
+	<div id="geral">
+		<div id="topo" class="divTopo">
+			<p:graphicImage library="images" name="banners.jpg" styleClass="imagemCentralizada" ></p:graphicImage>
+		</div>
+		
+		<div id="cabecalho" class="divCabecalho">
+		<h:form id="formMenu">
+		<p:menubar>
+			
+			<p:submenu label="Início">
+				<p:menuitem value="Menu Principal" url="/pages/Principal.xhtml"></p:menuitem>
+			</p:submenu>
+			
+			<p:submenu label="Cadastros">
+				<p:menuitem value="Estados" url="/pages/Estados.xhtml"></p:menuitem>
+				<p:menuitem value="Cidades" url="/pages/Cidades.xhtml"></p:menuitem>
+				<p:menuitem value="Produtos" url="/pages/Produtos.xhtml"></p:menuitem>
+				<p:menuitem value="Cadastro Inicial" url="/pages/Pessoas.xhtml"></p:menuitem>
+				<p:menuitem value="Funcionários" url="/pages/Funcionarios.xhtml"></p:menuitem>
+				<p:menuitem value="Clientes" url="/pages/Clientes.xhtml"></p:menuitem>
+				<p:menuitem value="Animais" url="/pages/Animais.xhtml"></p:menuitem>
+				<p:menuitem value="Administrador" url="/pages/Administradores.xhtml"></p:menuitem>				
+			</p:submenu>
+			
+			<p:submenu label="Shopping">
+				<p:menuitem value="Produtos e Serviços" url="/pages/Vendas.xhtml"></p:menuitem>
+			</p:submenu>
+			
+			<p:submenu label="Agendamentos">
+				<p:menuitem value="Agenda" url="/pages/Agendamentos.xhtml"></p:menuitem>
+			</p:submenu>
+			
+				<p:submenu label="Ajuda">
+				<p:menuitem value="Sobre" url="/pages/Sobre.xhtml"></p:menuitem>
+				<p:menuitem value="Desenvolvedores" url="/pages/Desenvolvedores.xhtml"></p:menuitem>
+				<p:menuitem value="Tutorial" url="/pages/Tutorial.xhtml"></p:menuitem>
+			</p:submenu>
+		
+			<p:submenu label="Arquivos">
+				<p:menuitem value="Sair"></p:menuitem>
+			</p:submenu>
+		
+		</p:menubar>
+		</h:form>	
+		</div>
+		
+		<div id="conteudo">
+			<ui:insert name="conteudo"></ui:insert>
+		<div class="rodape">
+			<br></br><br></br><br></br><br></br><br></br>
+			<br></br><br></br><br></br><br></br><br></br>
+			<h1>MeuPet!</h1>
+			<h2>Sistema de gerenciamento de Petshops</h2>
+			
+			
+			
+		</div>
+	
+	</div>
+
+	</div>
+</h:body>
+
+</html>

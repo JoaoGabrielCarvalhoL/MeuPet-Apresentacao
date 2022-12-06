@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	template="/templates/Modelo.xhtml">
+
+	<ui:define name="conteudo">
+	
+	<h:form id="formListagem">
+	
+		<p:panel header="Animais - Listagem">
+		
+			<p:dataTable id="tabela" emptyMessage="Nenhum registro encontrado."
+				paginator="true" value="#{animalBean.animais}" var="animal"
+				rows="">
+				
+				<f:facet name="footer">
+					<p:commandButton value="Novo" oncomplete="PF('dialogo').show();"
+						actionListener="#{animalBean.novo}"
+						update=":mensagem :formCadastro:painel">
+						<f:actionListener
+							type="org.omnifaces.eventlistener.ResetInputAjaxActionListener" />
+					</p:commandButton>
+					
+					<p:commandButton value="Gerar Relatório" actionListener="#{produtoBean.imprimir}"> 
+					</p:commandButton>
+				</f:facet>
+
+				<p:column headerText="Cliente" sortBy="#{animal.cliente.pessoa.nome}"
+					filterBy="#{animal.cliente.pessoa.nome}">
+					<h:outputText value="#{animal.cliente.pessoa.nome}" />
+				</p:column>
+
+				<p:column headerText="CPF" sortBy="#{animal.cliente.pessoa.cpf}"
+					filterBy="#{animal.cliente.pessoa.cpf}">
+					<h:outputText value="#{animal.cliente.pessoa.cpf}" />
+				</p:column>
+				
+				<p:column headerText="Nome animal">
+					<h:outputText value="#{animal.nomeAnimal}" />
+				</p:column>
+				
+				<p:column headerText="Raça">
+					<h:outputText value="#{animal.racaAnimal}" />
+				</p:column>
+				
+				<p:column headerText="Espécie" sortBy="#{animal.tipoAnimal}"
+					filterBy="#{animal.tipoAnimal}">
+					<h:outputText value="#{animal.tipoAnimal}" />
+				</p:column>
+				
+				<p:column headerText="Porte">
+					<h:outputText value="#{animal.porteAnimal}" />
+				</p:column>
+				
+
+				<p:column headerText="Opções" width="105"> 
+					<p:commandButton icon="ui-icon-trash" actionListener="#{animalBean.excluir}" update=":mensagem :formListagem:tabela">
+						<p:confirm header="Confirmação" message="Deseja excluir esse animal?" icon="ui-icon-alert"></p:confirm>
+						<f:attribute name="animalSelecionado" value="#{animal}"></f:attribute>
+					</p:commandButton>
+					
+					<p:commandButton icon="ui-icon-pencil" actionListener="#{animalBean.editar}" update=":mensagem :formCadastro:painel" oncomplete="PF('dialogo').show();">
+						<f:attribute name="animalSelecionado" value="#{animal}"></f:attribute>
+						<f:actionListener type="org.omnifaces.eventlistener.ResetInputAjaxActionListener"></f:actionListener>
+					</p:commandButton>
+
+				</p:column>
+			</p:dataTable>
+			
+			<p:confirmDialog global="true">
+			<p:commandButton value="Sim" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check"></p:commandButton>
+			<p:commandButton value="Não" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close"></p:commandButton>
+		
+	</p:confirmDialog>
+		</p:panel>
+	</h:form>
+
+	<p:dialog header="Animal - Cadastro" widgetVar="dialogo"
+		draggable="false" resizable="false" modal="true" closable="false">
+		<h:form id="formCadastro">
+		
+			<h:panelGrid id="painel" columns="2">
+				<p:outputLabel for="cliente" value="Cliente:" />
+				<p:selectOneMenu id="cliente" filter="true"
+					value="#{animalBean.animal.cliente}" required="true"
+					requiredMessage="O campo Cliente é obrigatório"
+					converter="omnifaces.SelectItemsConverter">
+					<f:selectItem noSelectionOption="true"
+						itemLabel="Selecione um cliente" />
+					<f:selectItems value="#{animalBean.clientes}" var="cliente"
+						itemValue="#{cliente}" itemLabel="#{cliente.pessoa.nome} - #{cliente.pessoa.cpf}" />
+				</p:selectOneMenu>
+				
+				<p:outputLabel for="nomeAnimal" value="Nome Animal: "></p:outputLabel>
+					<p:inputText id="nomeAnimal" maxlength="100" size="40" value="#{animalBean.animal.nomeAnimal}" required="true" requiredMessage="O campo Nome Animal é obrigatório!"></p:inputText>
+					
+				<p:outputLabel for="tipoAnimal" value="Espécie: "></p:outputLabel>
+					<p:inputText id="tipoAnimal" maxlength="100" size="40" value="#{animalBean.animal.tipoAnimal}" required="true" requiredMessage="O campo Espécie é obrigatório!"></p:inputText>
+					
+				<p:outputLabel for="racaAnimal" value="Raça: "></p:outputLabel>
+					<p:inputText id="racaAnimal" maxlength="100" size="40" value="#{animalBean.animal.racaAnimal}" required="true" requiredMessage="O campo Raça é obrigatório!"></p:inputText>
+					
+				<p:outputLabel for="porteAnimal" value="Porte: "></p:outputLabel>
+					<p:inputText id="porteAnimal" maxlength="100" size="40" value="#{animalBean.animal.porteAnimal}" required="true" requiredMessage="O campo Porte é obrigatório!"></p:inputText>
+						
+					
+				
+			</h:panelGrid>
+
+			<h:panelGrid columns="2">
+				<p:commandButton value="Salvar"
+					update=":mensagem :formCadastro:painel :formListagem:tabela"
+					actionListener="#{animalBean.salvar}" />
+				<p:commandButton value="Fechar" oncomplete="PF('dialogo').hide();" />
+			</h:panelGrid>
+		</h:form>
+	</p:dialog>
+</ui:define>
+</ui:composition>

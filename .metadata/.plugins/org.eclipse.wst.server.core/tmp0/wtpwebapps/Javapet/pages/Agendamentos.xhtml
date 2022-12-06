@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	template="/templates/Modelo.xhtml">
+	
+	
+	
+<ui:define name="conteudo">
+	<h:form id="formListagem">
+	<h:outputScript library="js" name="scripts.js"></h:outputScript>
+
+	<p:panel header="Agendamentos - Listagem">
+	
+		<p:dataTable id="tabela" emptyMessage="Nenhum registro encontrado."
+			paginator="true" value="#{agendamentoBean.agendamentos}" var="agendamento" rows="10" paginatorPosition="top">
+			
+				<f:facet name="footer">
+					<p:commandButton value="Novo" actionListener="#{agendamentoBean.novo}" oncomplete="PF('dialogo').show();" update=":mensagem :formCadastro:painel">	
+						<f:actionListener type="org.omnifaces.eventlistener.ResetInputAjaxActionListener"></f:actionListener>		
+					</p:commandButton>	
+					
+			
+				</f:facet>
+				
+				<p:column headerText="Data do Agendamento">
+					<h:outputText value="#{agendamento.dataAgendamento}"> 
+						<f:convertDateTime locale="pt_BR"></f:convertDateTime>
+				</h:outputText>
+				</p:column>
+				
+				<p:column headerText="Cliente">
+					<h:outputText value="#{agendamento.cliente.pessoa.nome}"></h:outputText>
+				</p:column>
+				
+				<p:column headerText="Produto">
+					<h:outputText value="#{agendamento.produto.descricao}"></h:outputText>
+				</p:column>
+				
+					<p:column headerText="Valor">
+					<h:outputText value="#{agendamento.produto.preco}">
+					</h:outputText>
+					
+				</p:column>		
+				
+		
+				
+				<p:column headerText="Opções" width="105"> 
+					<p:commandButton icon="ui-icon-trash" actionListener="#{agendamentoBean.excluir}" update=":mensagem :formListagem:tabela">
+						<p:confirm header="Confirmação" message="Deseja excluir essa pessoa?" icon="ui-icon-alert"></p:confirm>
+						<f:attribute name="agendamentoSelecionado" value="#{agendamento}"></f:attribute>
+					</p:commandButton>
+					
+					<p:commandButton icon="ui-icon-pencil" actionListener="#{agendamentoBean.editar}" update=":mensagem :formCadastro:painel" oncomplete="PF('dialogo').show();">
+						<f:attribute name="agendamentoSelecionado" value="#{agendamento}"></f:attribute>
+						<f:actionListener type="org.omnifaces.eventlistener.ResetInputAjaxActionListener"></f:actionListener>
+					</p:commandButton>
+				</p:column>	
+		
+		</p:dataTable>
+
+	<p:confirmDialog global="true">
+		<p:commandButton value="Sim" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check"></p:commandButton>
+		<p:commandButton value="Não" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close"></p:commandButton>
+	</p:confirmDialog>
+	
+	</p:panel>
+</h:form>	
+
+	<p:dialog header="Agendamento - Cadastro" widgetVar="dialogo"
+				draggable="false" resizable="false" modal="true">
+				
+			<h:form id="formCadastro">
+				<h:panelGrid id="painel" columns="2">
+					<p:outputLabel  for="dataAgendamento" value="Data Agendamento: "></p:outputLabel>
+					<p:calendar id="dataAgendamento" value="#{agendamentoBean.agendamento.dataAgendamento}" required="true" requiredMessage="O campo Data Agendamento é obrigatório!" size="10" locale="pt_BR"></p:calendar>
+					
+					<p:outputLabel for="cliente" value="Cliente: "></p:outputLabel>
+					<p:selectOneMenu id="cliente" filter="true" converter="omnifaces.SelectItemsConverter" value="#{agendamentoBean.agendamento.cliente}" required="true" requiredMessage="O campo Cliente é obrigatório!">
+						<f:selectItem noSelectionOption="true" itemLabel="Selecione um cliente: "></f:selectItem>
+						<f:selectItems value="#{agendamentoBean.clientes}" var="cliente" itemValue="#{cliente}" itemLabel="#{cliente.pessoa.nome}"></f:selectItems>
+					</p:selectOneMenu>
+					
+					<p:outputLabel for="produto" value="Produto/Serviço: "></p:outputLabel>
+					<p:selectOneMenu id="produto" filter="true" required="true" requiredMessage="O campo Produto é obrigatório!" converter="omnifaces.SelectItemsConverter" value="#{agendamentoBean.agendamento.produto}">
+						<f:selectItem noSelectionOption="true" itemLabel="Selecione um Produto/Serviço: "></f:selectItem>
+						<f:selectItems value="#{agendamentoBean.produtos}" var="produto" itemValue="#{produto}" itemLabel="#{produto.descricao} - #{produto.preco}"></f:selectItems>
+					</p:selectOneMenu>
+				
+					
+				</h:panelGrid>	
+				
+				<h:panelGrid columns="2">	
+					<p:commandButton value="Salvar" actionListener="#{agendamentoBean.salvar}" update=":mensagem :formCadastro:painel :formListagem:tabela"></p:commandButton>
+					
+					<p:commandButton value="Cancelar" oncomplete="PF('dialogo').hide();"></p:commandButton>
+				</h:panelGrid>	
+				
+			</h:form>
+			
+		</p:dialog>
+	</ui:define>
+
+</ui:composition>

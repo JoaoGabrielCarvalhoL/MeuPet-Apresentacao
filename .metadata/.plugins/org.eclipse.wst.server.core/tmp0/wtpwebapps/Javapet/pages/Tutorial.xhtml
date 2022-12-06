@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	template="/templates/Modelo.xhtml">
+
+	
+	<ui:define name="conteudo">
+		<h1 class="tituloSobre"> Meupet</h1>
+		<h2 class="tituloSobre">Sistema de gerenciamento para Petshops</h2>
+		<h2 class="tituloSobre">Tutorial</h2>
+		
+		<div class="divTutorial" style="font-size: 16px">
+		<h3> Olá, seja bem vindo(a) ao Meupet! Nesse tutorial iremos te ajudar a utilizar o sistema de uma forma simples e fácil. Vamos lá! </h3>
+		
+		
+		<ol>
+			<li>Cadastros</li>
+			<li>Shopping</li>
+			<li>Ajuda</li>
+			<li>Exclusões</li>
+			<li>Relatórios</li>
+		</ol>
+		
+		<h3> Esses itens são referentes a barra do Menu na página inicial. Partiremos desse ponto.</h3>
+		
+		<ul>
+			<li>Cadastros: 
+				<p> Na primeira aba a esquerda, se encontra toda a parte de cadastros do sistema. Nela você conseguirá cadastrar clientes, funcionários, animais e todos os outros itens que estão presente lá.</p>
+				<p> Dando início a explicação de cadastros, no exemplo de Estados, nessa aba você poderá cadastrar o seu estado e a sigla dele no botão "Novo". Alguns campos são obrigatórios, caso você esqueça algum dado importante, nós iremos te avisar com uma mensagem no canto superior direito, não se preocupe. As mensagens explicam o que precisa ser feito para realizar a ação que foi solicitada, leia com atenção. Você também poderá realizar pesquisas, caso queira. Existe paginação, ou seja, existem outras páginas além da inicial. Os ícones da paginação fica no centro da tabela, antes da listagem.</p>
+				<p> A terceira coluna é representada pelas Opções. Lá você poderá editar e até mesmo apagar algum item da lista ou até mesmo vários. Essa coluna de opções está presente em todas as outras telas.O primeiro botão no sentido da esquerda para direita é o "Excluir". Você poderá utilizá-lo quando precisar apagar algo. O outro botão que está ao lado, é o de "Editar". Com ele você poderá corrigir, ou até mesmo mudar alguma informação que seja do seu interesse.</p>
+				<p> Continuando ainda na tela Estados, nela consta todos os estados e o DF. Você pode inserir algum Estado caso apague, se não for o caso, essa tabela deixamos prontinha para o seu uso.</p>
+				<p> Algumas tabelas, deixamos o campo de pesquisa em alguns atributos, tudo para facilitar o seu uso. Nesses campos, você pode digitar e será realizada uma busca para verificar se consta no banco de dados, aquele dado que foi inserido na busca. Se houver, será entregue a você, caso contrário esse dado não existe ainda nessa tabela, mas poderá ser acrescentado por você através do botão "Novo".</p>
+				<p> Continuando a explicação, mudando agora para a tela Cidades. Nela você precisará ter cadastrado seus Estados primeiramente para que assim possa cadastrar suas cidades. Nela consta um campo de seleção, onde você selecionará o seu estado e posteriormente informará o nome de sua cidade para ser cadastrado. Usamos dessa lógica no desenvolvimente. Em algumas situações, você precisará preencher algumas informações em uma outra tabela para que assim possa conseguir realizar o cadastro em outra tabela. Abordaremos novamente esse assunto em nosso tutorial, não se preocupe! </p>
+				<p> Explicando um pouco sobre a hierárquia de alguns cadastros, citando o exemplo da tela Pessoas com Clientes. Nessa situação também usamos do pensamento que seria interessante cadastrar primeiramente como "Pessoa" para posteriormente pudéssmos cadastrar como "Cliente". Ao primeiro contato pode pararecer um tanto quanto confuso, mas dessa forma permite a reutilização e manuseio dos dados de uma forma mais eficiente. Iremos citar todos os cadastros que utilizam desse mecanismo, para que assim você fique confortável ao uso do sistema.</p>
+				<p> Estados -> Cidade</p>
+				<p> Pessoas -> Clientes</p>
+				<p> Pessoas - > Clientes -> Animais</p>
+				<p> Pessoas -> Funcionários</p>
+				<p> Pessoas -> Administradores</p>
+				<p> Essa sequência nos mostra que no primeiro exemplo precisamos cadastrar Estados para que só assim possamos cadastrar cidades. No Segundo exemplo, precisamos primeiramente cadastrar Pessoas para que assim possamos cadastrar como CLientes. Assim segue os demais itens. Dessa forma, você conseguirá realizar os seus cadastros de uma forma simplificada, embora não aparente isso ao primeiro contato.</p>
+				<p> Em alguns cadastros você notará que existirá uma mascára no campo para ser digitado. Por exemplo, quando você for inserir o seu CPF, lá estará mostrando que apenas os números serão inseridos, dessa forma você não precisará se preocupar com pontos, barras e etc. Lembrando que alguns casos, como RG, Inscrição Estadual, CNPJ estão configurados para o estado de São Paulo. Esses documentos tem suas configurações exclusivas de estado para estado. Caso seja o seu caso, nos contate para que assim possamos configurar para o seu estado.</p>
+				<p> Acredito que as informações cruciais para o cadastro sejam essas, vamos para o próximo tópico!</p>
+			</li>
+			
+			<li> Shopping: 
+				<p> Chegamos na segunda seção do nosso menu inicial, a seção de compras. Nessa seção estará disponíveis todos os produtos que foram cadastrados juntamente com os seus valores.</p>
+				<p> Como nas outras telas, a tela de Venda também possui paginação. Os itens são organizados de forma alfabética, caso o seu item não esteja na primeira página, não esqueça de navegar pelas as outras páginas.</p>
+				<p> A tela de Vendas também possui a opção de busca, caso você prefira, poderá digitar o nome do produto cadastrado e a busca será realizada. Lembrando que se existir o cadastro do produto, ele será apresentado a você. Caso não exista, será exibido uma mensagem que o produto não existe ou similar. </p>
+				<p> A tela de Venda é dividida em três listagem (Produtos, Cesta de Compras e Finalização). Essa divisão é realizada no horizontal, sendo a primeira listagem os Produtos disponíveis a serem comprados. A segunda listagem são o seu carrinho de compra, nele constará os itens que você adicionou. E por mim a finalização, nela que você encerrará sua compra. Explicaremos com maiores detalhes.</p>
+				<p> Na tela de listagem, na coluna Opções (terceira coluna) nela consta um botão com o símbolo de "+". Esse botão adicionará o item clicado ao seu carrinho de compras, através dele, você sinalizará os itens que você deseja comprar.</p>
+				<p> Na tela Cesta de Comprasm na coluna Opções (terceira coluna) também consta um botão, porém com o símbolo de "-". Esse botão tem ação contrária ao anterior, ele retirará o item correspondente. Caso você clique no botão de "+" você poderá removê-lo com facilidade com o botão "-".</p>
+				<p> Ao adicionar itens a sua cesta de compras, o valor será automaticamente calculado. Esse valor é visível na última coluna, a de finalização. Esse valor é alterado conforme é adicionado ou removido produtos da Cesta de Compras.</p>
+				<p> Por fim, ao término da seleção dos produtos desejados, você poderá finalizará a sua compra no botão "Finalizar" no canto inferior esquerdo da tela. Ao clicar, você terá a opção de selecionar o Cliente e o Funcionário responsável pela venda. O pagamento fica a critério da empresa.</p>
+				<p> Após a finalização da Venda, a tela é resetada. Dessa forma é possível realizar uma nova Venda sem precisar recarregar a página.</p>
+			</li>
+			
+			<li> Ajuda: 
+				<p> Nessa seção, a terceira aba do nosso menu, você encontrará diversas informações que diz respeito ao sistema e aos desenvolvedores. Caso esteja com alguma dúvida, essa será a seção que talvez você encontrará respostas.</p>
+				<p> Na primeira aba desse Menu, você encontrará a tela Sobre. Nela consta informações referente ao Sistema Meupet, tal como intuito e objetivos.</p>
+				<p> Essa tela é apenas de cunho informátivo. </p>
+				<p> Na segunda tela do menu Ajuda, você encontrará a tela Desenvolvedores. Nela consta informações e contato conosco. Nessa tela, tem um pouco sobre nós, nossos repositórios(outros projetos), e-mails, LinkedIn e etc.</p>
+				<p> Nessa aba existe uma dedicatória a todos os professores que de forma direta ou indiretamente tiveram participação nesse Projeto. Também consta links do LinkedIn para que possa conhecê-lôs e acompanhâ-lôs. </p>
+				<p> Existe também um link para o direcionamento para o site da nossa faculdade, Fatec Ourinhos. Convido-os a conhecer nossa instuição.</p>
+			</li>
+			
+			<li> Exclusões: 
+				<p> Iremos abordar um tema importante sobre exclusões, possíveis dúvidas serão sanadas com apenas uma leitura nesse tópico. </p>
+				<p> Sem abordar de uma forma técnica, tentaremos explicar de uma forma simples. No capítulo um, onde abordamos referente a cadastros, lá explicamos sobre a ordem de cadastros. Caso não se recorde, suba um pouco a página e poderá encontrar. Lá explicamos um pouco sobre a ordem de inserção de dados em algumas tabelas. Pois bem, explicaremos agora referente a exclusão.</p>
+				<p> Usando o exemplo de Pessoas para com Clientes. Para cadastrarmos um Cliente, primeiramente precisamos cadastrar uma pessoa para que somente assim consigamos realizar o cadastro desejado. Em outras palavras, se não fizermos dessa forma, na hora de selecionarmos a Pessoa ela não consará na caixa de seleção no cadastro e não conseguiremos cadastrar clientes.</p>
+				<p> Agora um exemplo contrário dessa situação, para excluirmos uma Pessoa que está cadastrado como Clientes ou qualquer outro tipo de tabela. Se tentarmos realizar dessa forma aparecerá um erro na sua tela, tal como "Ocorreu um erro ao tentar excluir uma pessoa". Para você aparecerá apenas essa mensagem e será impossibilitado de realizar uma ação desse tipo.</p>
+				<p> Esse erro é causado por uma Exceção de violação de restrição, como essa é uma exceção que precisa ser tratada, você será impedido de prosseguir. Na Versão 1.0 do MeuPet ainda não foi tratado esse tipo de situação, porém podemos contornar essa situação</p>
+				<p> Seguindo o exemplo de Pessoa para com Cliente, uma forma de você conseguir apagar esse dado seria da seguinte forma: Na tabela cliente, primeiramente você apaga o Cliente que está relacionado a Pessoa e depois você conseguirá apagar a Pessoa então desejada. Dessa forma você terá sucesso e não terá nenhum tipo de problema. Usamos o exemplo de Pessoa para Cliente, mas isso se aplica em todas as tabelas que existem depedência entre si. Esse transtorno será tratado, porém caso você tenha a infelicidade de ter esse tipo de incoveniente antes de resolvermos o problema, siga esses passos.</p>
+				<p> Essa regra é do próprio Banco de Dados Relacionais, ele não permite que você apague um dado que esteja associado com outro dado. </p>
+				<p> Caso tenha ficado alguma dúvida referente a isso, me mande um e-mail <a href="mailto:27.joaogabriel@gmail.com"> 27.joaogabriel@gmail.com que entrarei em contato com você.</a></p>
+				<p> A respeito de exclusões, era isso que precisávamos esclarecer. Por ser algo que julgamos ser importante, resolvemos dedicar um tópico somente para isso.</p>
+			</li>
+			
+			<li> Relatórios: 
+				<p>No momento, estamos iniciando o desenvolvimento dos relatórios, concluiremos esse tópico em breve.</p>
+			
+			
+			
+			</li>
+		</ul>
+		</div>
+	
+	</ui:define>
+</ui:composition>

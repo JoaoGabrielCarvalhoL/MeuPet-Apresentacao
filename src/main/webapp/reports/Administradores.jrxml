@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.15.0.final using JasperReports Library version 6.15.0-dd49bfb94918336b8321d5507193f0169ead4e95  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Administradores" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="9772762b-da12-4d26-a214-aff6554cc2d3">
+	<property name="com.jaspersoft.studio.data.sql.tables">
+		<![CDATA[amF2YXBldC5hZG1pbmlzdHJhZG9yIEFTICw2Miw3LGYwNWUxNjZhLWM0YTktNGFhMi05OTI1LWEy
+ZTZmN2ZhNmU2OTtqYXZhcGV0LnBlc3NvYSBBUyAsMzA2LDIxLDU2NWY1MGY2LTY5MzMtNDE2Zi1h
+MTNjLWViMjY0MzY2OGMyYTs=]]>
+	</property>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Petshop Data Adapter "/>
+	<queryString language="SQL">
+		<![CDATA[SELECT javapet.administrador.cnpj,
+	javapet.administrador.`inscricaoEstadual`,
+	javapet.administrador.`nomeFantasia`,
+	javapet.pessoa.nome
+FROM javapet.administrador
+	INNER JOIN javapet.pessoa ON 
+	 javapet.administrador.pessoa_id = javapet.pessoa.id]]>
+	</queryString>
+	<field name="cnpj" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="cnpj"/>
+		<property name="com.jaspersoft.studio.field.label" value="cnpj"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="administrador"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="inscricaoEstadual" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="inscricaoEstadual"/>
+		<property name="com.jaspersoft.studio.field.label" value="inscricaoEstadual"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="administrador"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nomeFantasia" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nomeFantasia"/>
+		<property name="com.jaspersoft.studio.field.label" value="nomeFantasia"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="administrador"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nome" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nome"/>
+		<property name="com.jaspersoft.studio.field.label" value="nome"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pessoa"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<title>
+		<band height="92" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="560" height="80" uuid="1e887aa5-a47b-4c94-9fa5-96b08cad0997"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[MeuPet
+Sistema de Gerenciamento para Petshops]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="41" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="560" height="30" uuid="1545105d-507d-4fc8-a3f9-a77b5099e564"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Relatório de Administradores ]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="30" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="30" uuid="bd73f1ac-51f8-4d46-8fc6-8f190c2703c9">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7d8eb11d-29db-4934-bc62-f9dc8143e879"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Empresa]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="140" y="0" width="100" height="30" uuid="2bb53888-4df8-43be-8e30-2734cafad1a6">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="d670b6df-8720-4c12-8531-530c6d755ba4"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CNPJ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="280" y="0" width="100" height="30" uuid="eae10e0f-4984-42d3-9598-c634a6714fac">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="069fe501-7923-4007-b3ff-f49001b43878"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Ins. Estadual]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="420" y="0" width="100" height="30" uuid="a4b542d4-94b2-48da-b59b-83105adbd335">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7e851e0c-e63b-44a3-9be1-9751bd0e8f24"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Administrador]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="30" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="100" height="30" uuid="2fe5df56-a1ac-4c94-a35f-b91f35c8f8ef">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7d8eb11d-29db-4934-bc62-f9dc8143e879"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{nomeFantasia}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="140" y="-4" width="100" height="30" uuid="6afb94d8-edb5-4205-82e7-80065d387e34">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="d670b6df-8720-4c12-8531-530c6d755ba4"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{cnpj}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="280" y="0" width="100" height="30" uuid="b1b53574-150e-4b3a-b174-b5d35a0e05b7">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="069fe501-7923-4007-b3ff-f49001b43878"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{inscricaoEstadual}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="420" y="-4" width="100" height="30" uuid="0e6eae78-25f9-44d8-8eb9-895ebeb72b03">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7e851e0c-e63b-44a3-9be1-9751bd0e8f24"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="10" width="560" height="38" uuid="ea0d9e4f-5e85-4143-b9cc-8c6300c9b800"/>
+				<box>
+					<topPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[MeuPet - Sistema de Gerenciamento para Petshops
+
+]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+</jasperReport>

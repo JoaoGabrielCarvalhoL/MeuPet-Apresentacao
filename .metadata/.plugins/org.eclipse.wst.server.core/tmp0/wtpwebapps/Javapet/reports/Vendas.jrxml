@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.15.0.final using JasperReports Library version 6.15.0-dd49bfb94918336b8321d5507193f0169ead4e95  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Vendas" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="fcfc191d-0d33-4b60-a8aa-ce3ce2a3b5ff">
+	<property name="com.jaspersoft.studio.data.sql.tables">
+		<![CDATA[amF2YXBldC52ZW5kYSBBUyAsMjgsNixjZDk2NTdmZS1jMjNmLTQwNmYtYTJiYy0xZjEwMTgwN2Zj
+OWI7]]>
+	</property>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Petshop Data Adapter "/>
+	<queryString language="SQL">
+		<![CDATA[SELECT javapet.venda.horario,
+	javapet.venda.`valorTotal`,
+	javapet.venda.cliente_id,
+	javapet.venda.funcionario_id
+FROM javapet.venda]]>
+	</queryString>
+	<field name="horario" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.name" value="horario"/>
+		<property name="com.jaspersoft.studio.field.label" value="horario"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="venda"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="valorTotal" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="valorTotal"/>
+		<property name="com.jaspersoft.studio.field.label" value="valorTotal"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="venda"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cliente_id" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.name" value="cliente_id"/>
+		<property name="com.jaspersoft.studio.field.label" value="cliente_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="venda"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="funcionario_id" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.name" value="funcionario_id"/>
+		<property name="com.jaspersoft.studio.field.label" value="funcionario_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="venda"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<title>
+		<band height="60" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="550" height="60" uuid="31cab36d-fe0f-4a10-a433-b3c95677bd09"/>
+				<textElement textAlignment="Center">
+					<font size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[MeuPet
+Sistema de Gerenciamento para Petshops]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="42" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="560" height="42" uuid="4fa0d7f1-fb35-447f-8611-7e751a7001c2"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Relatório de Vendas]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="30" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="30" uuid="37ca00db-250e-4707-afd3-e2e7ff6fdeb3">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c5b54726-d584-4dd3-a77f-ad53ab7e3eaf"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Data]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="150" y="0" width="100" height="30" uuid="6d313493-31da-4aec-8c74-ce22a96f1c36">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a6f94320-0155-4db8-84be-d33fee2e96e1"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Valor Total	]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="310" y="0" width="100" height="30" uuid="143ff260-d120-41a9-91e2-1dac6a85c4e2">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="731d56cc-e070-4d4c-899f-5dbaafb66e55"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cod. Cliente]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="440" y="0" width="100" height="30" uuid="a8cd653e-7047-4caf-8c0d-eef4fb88223e">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c0972a12-20f6-48bb-b1ac-7b0a5ee1ced0"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cod. Funcionario]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="30" splitType="Stretch">
+			<textField pattern="dd/MM/yyyy HH:mm">
+				<reportElement x="0" y="0" width="100" height="30" uuid="45589c50-8b1b-4fca-aae7-80b4db9c8dcd">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c5b54726-d584-4dd3-a77f-ad53ab7e3eaf"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{horario}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="150" y="0" width="100" height="30" uuid="c9b8aaaa-37fb-4d98-b486-0b2b33221b31">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a6f94320-0155-4db8-84be-d33fee2e96e1"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{valorTotal}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="310" y="0" width="100" height="30" uuid="bfc6af90-73db-4e33-8b0b-acedbda3e24b">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="731d56cc-e070-4d4c-899f-5dbaafb66e55"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{cliente_id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="440" y="0" width="100" height="30" uuid="00261c6f-b058-4177-860a-4b154ecbb18a">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c0972a12-20f6-48bb-b1ac-7b0a5ee1ced0"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{funcionario_id}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="10" width="550" height="30" uuid="74902281-1973-4bc1-bc27-c2a9e57b8a82"/>
+				<box>
+					<topPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[MeuPet - Sistema de Gerenciamento para Petshops
+
+]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+</jasperReport>
